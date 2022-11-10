@@ -1,0 +1,23 @@
+{% extends "chat/base.html" %}
+{% load static %}
+
+{% block title %}Lobby{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'chat/lobby.css' %}"/>
+    <script src="{% static 'chat/lobby.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h1>Enter name</h1>
+        <form method="POST" action="{% url 'chat:lobby' %}" >
+            {% csrf_token %}
+            <div class="mb-3">
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary" id="button" type="submit">Go to Lobby</button>
+            </div>
+          </form>
+    </main>
+{% endblock %}

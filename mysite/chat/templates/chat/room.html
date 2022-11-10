@@ -1,0 +1,27 @@
+{% extends "chat/base.html" %}
+{% load static %}
+
+{% block title %}Room{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'chat/room.css' %}"/>
+    <script src="{% static 'chat/room.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br> -->
+<main>
+    <h1>{{ room_name }}</h1>
+    <div id="chat-log"></div>
+    <br />
+    <!-- <input id="chat-message-input" type="text" size="100"><br>
+    <input id="chat-message-submit" type="button" value="Send"> -->
+    <div class="mb-3">
+        <input id="chat-message-input" type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button id="chat-message-submit" class="btn btn-primary" id="button" type="submit">Send</button>
+    </div>
+    <a href="{% url 'chat:lobby' %}"><p>Return to lobby</p></a>
+</main>
+{{ room_name|json_script:"room-name" }}
+{% endblock %}

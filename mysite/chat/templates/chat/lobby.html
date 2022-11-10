@@ -1,0 +1,24 @@
+{% extends "chat/base.html" %}
+{% load static %}
+
+{% block title %}Lobby{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'chat/lobby.css' %}"/>
+    <script src="{% static 'chat/lobby.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h1>CHAT LOBBY</h1>
+        <select class="form-select form-select-lg mb-3" id="selector" name="room">
+            <option selected>Select Room</option>
+            <option value="dinners">Dinners</option>
+            <option value="chores">Chores</option>
+            <option value="activities">Activities</option>
+        </select>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" id="button" type="button">Join Chat</button>
+        </div>
+        <a href="{% url 'chat:logout_user' %}"><p>Logout</p></a>
+    </main>
+{% endblock %}
