@@ -1,2 +1,2 @@
 # Django-Channels
-This is the code for creating Channels in Django.
+This is the code for my Django Channels project
